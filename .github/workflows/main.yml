@@ -96,6 +96,9 @@ jobs:
   deploy-frontend:
     runs-on: ubuntu-latest
     needs: build-and-test
+    permissions:
+      id-token: write   # Required for OIDC authentication
+      contents: read    # Required for accessing repository content
 
     steps:
       - name: Checkout code
