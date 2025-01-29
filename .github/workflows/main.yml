@@ -109,7 +109,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./frontend  # Ensure the HTML file is in the 'frontend' directory
+          path: ./docs  # Ensure the HTML file is in the 'docs' directory
 
       - name: Deploy GitHub Pages
         uses: actions/deploy-pages@v2
