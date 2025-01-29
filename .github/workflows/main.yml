@@ -99,6 +99,7 @@ jobs:
     permissions:
       id-token: write   # Required for OIDC authentication
       contents: read    # Required for accessing repository content
+      pages: write
 
     steps:
       - name: Checkout code
