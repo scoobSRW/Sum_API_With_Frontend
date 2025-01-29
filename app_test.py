@@ -1,5 +1,5 @@
-import pytest
 from app import calculate_sum, app
+
 
 def test_positive_sum():
     """Test case for positive numbers."""

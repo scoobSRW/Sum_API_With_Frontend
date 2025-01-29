@@ -7,7 +7,10 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, Session
 
 app = Flask(__name__)
 ma = Marshmallow(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://sum_postgres_brq8_user:C6uMjVXO3Hn5kTBbyD3lFiavPNNep2iD@dpg-cud6bat2ng1s73bdis4g-a.oregon-postgres.render.com/sum_postgres_brq8'
+app.config['SQLALCHEMY_DATABASE_URI'] = (
+    'postgresql://sum_postgres_brq8_user:C6uMjVXO3Hn5kTBbyD3lFiavPNNep2iD@'
+    'dpg-cud6bat2ng1s73bdis4g-a.oregon-postgres.render.com/sum_postgres_brq8'
+)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
@@ -67,7 +70,9 @@ def sum_route():
 
 @app.route('/sum/result/<int:result>', methods=['GET'])
 def get_sum_by_result(result):
-    sums = db.session.execute(db.select(Sum).filter_by(result=result)).scalars()
+    sums = db.session.execute(
+        db.select(Sum).filter_by(result=result)
+    ).scalars()
     return sums_schema.jsonify(sums), 200
 
 
